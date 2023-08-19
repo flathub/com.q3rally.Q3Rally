@@ -24,11 +24,6 @@ modules:
         make copyfiles COPYBINDIR=${FLATPAK_DEST}/bin/ COPYDIR=${FLATPAK_DEST}/lib/q3rally/ NO_STRIP=1
         mkdir -p ${FLATPAK_DEST}/lib/q3rally/baseq3r/vm
         mv build/release-linux-*/baseq3r/vm/*.qvm ${FLATPAK_DEST}/lib/q3rally/baseq3r/vm
-      - |
-        pushd baseq3r
-        zip -Xr ${FLATPAK_DEST}/lib/q3rally/baseq3r/textures.pk3 textures
-        rm -rf textures
-        zip -Xr ${FLATPAK_DEST}/lib/q3rally/baseq3r/assets0.pk3 *
       - mv ${FLATPAK_DEST}/bin/q3rally.* ${FLATPAK_DEST}/bin/q3rally
       - mv ${FLATPAK_DEST}/bin/q3rally-server.* ${FLATPAK_DEST}/bin/q3rally-server
       - mv ${FLATPAK_DEST}/bin/*.so ${FLATPAK_DEST}/lib/q3rally/
@@ -42,3 +37,12 @@ modules:
         commit: e8de4d00a02042d577e96efbde242f796546a1c9
       - type: patch
         path: appstream.patch
+  - name: q3rally-data
+    buildsystem: simple
+    build-commands:
+      - rm baseq3r/*.so
+      - cp -rv baseq3r ${FLATPAK_DEST}/lib/q3rally/
+    sources:
+      - type: archive
+        url: https://github.com/Q3Rally-Team/q3rally/releases/download/v0.4/q3rally_v0.4_linux64.zip
+        sha256: 787a04eb87d86e93599c41f65c526a76f6a2325232225de5afb3f6e79cee5853
