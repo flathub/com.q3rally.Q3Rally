@@ -19,11 +19,10 @@ modules:
     build-commands:
       - |
         pushd engine
+        export BUILD_GAME_QVM=0
         make DEFAULT_BASEDIR=${FLATPAK_DEST}/lib/q3rally USE_AUTOUPDATER=0 -j${FLATPAK_BUILDER_N_JOBS}
         mkdir -p ${FLATPAK_DEST}/bin/
         make copyfiles COPYBINDIR=${FLATPAK_DEST}/bin/ COPYDIR=${FLATPAK_DEST}/lib/q3rally/ NO_STRIP=1
-        mkdir -p ${FLATPAK_DEST}/lib/q3rally/baseq3r/vm
-        mv build/release-linux-*/baseq3r/vm/*.qvm ${FLATPAK_DEST}/lib/q3rally/baseq3r/vm
       - mv ${FLATPAK_DEST}/bin/q3rally.* ${FLATPAK_DEST}/bin/q3rally
       - mv ${FLATPAK_DEST}/bin/q3rally-server.* ${FLATPAK_DEST}/bin/q3rally-server
       - mv ${FLATPAK_DEST}/bin/*.so ${FLATPAK_DEST}/lib/q3rally/
