@@ -36,6 +36,8 @@ modules:
         commit: e8de4d00a02042d577e96efbde242f796546a1c9
       - type: patch
         path: appstream.patch
+      - type: patch
+        path: appstream2.patch
   - name: q3rally-data
     buildsystem: simple
     build-commands:
