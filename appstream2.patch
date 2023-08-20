@@ -1,0 +1,49 @@
+From 400d2c85ef2271066e5d626e975088b71409a082 Mon Sep 17 00:00:00 2001
+From: Zack Middleton <zack@cloemail.com>
+Date: Sat, 19 Aug 2023 15:41:01 -0500
+Subject: [PATCH] Improve AppStream metainfo
+
+- Correct the software license to be GPL-2.0-or-later.
+- Remove the hyphen in the developer name.
+- Add social-audio intense due to unmoderated voice chat.
+- Some syntax / order changes to match ioquake3's metainfo.
+---
+ engine/misc/setup/com.q3rally.Q3Rally.metainfo.xml | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
+
+diff --git a/engine/misc/setup/com.q3rally.Q3Rally.metainfo.xml b/engine/misc/setup/com.q3rally.Q3Rally.metainfo.xml
+index acfa4803..e6d1f59e 100644
+--- a/engine/misc/setup/com.q3rally.Q3Rally.metainfo.xml
++++ b/engine/misc/setup/com.q3rally.Q3Rally.metainfo.xml
+@@ -1,12 +1,11 @@
+-<?xml version='1.0' encoding='utf-8'?>
+-<component type="desktop">
+-  <!--Created with jdAppStreamEdit 7.0-->
++<?xml version="1.0" encoding="UTF-8"?>
++<component type="desktop-application">
+   <id>com.q3rally.Q3Rally</id>
++  <launchable type="desktop-id">q3rally.desktop</launchable>
++  <metadata_license>CC0-1.0</metadata_license>
++  <project_license>GPL-2.0-or-later</project_license>
+   <name>Q3Rally</name>
+   <summary>Survival racing game</summary>
+-  <developer_name>Q3Rally-Team</developer_name>
+-  <metadata_license>CC0-1.0</metadata_license>
+-  <project_license>GPL-2.0-only</project_license>
+   <description>
+     <p>Q3Rally is a vehicular combat racing game.</p>
+   </description>
+@@ -50,8 +49,10 @@
+   <url type="homepage">http://www.q3rally.com/</url>
+   <url type="bugtracker">https://github.com/Q3Rally-Team/q3rally/issues</url>
+   <url type="vcs-browser">https://github.com/Q3Rally-Team/q3rally</url>
++  <developer_name>Q3Rally Team</developer_name>
+   <content_rating type="oars-1.1">
+     <content_attribute id="violence-fantasy">moderate</content_attribute>
+     <content_attribute id="social-chat">intense</content_attribute>
++    <content_attribute id="social-audio">intense</content_attribute>
+   </content_rating>
+ </component>
+-- 
+2.39.2
+
