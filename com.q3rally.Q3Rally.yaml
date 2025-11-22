@@ -1,6 +1,6 @@
 app-id: com.q3rally.Q3Rally
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: q3rally
 rename-icon: q3rally
@@ -32,12 +32,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/Q3Rally-Team/q3rally.git
-        tag: v0.4
-        commit: e8de4d00a02042d577e96efbde242f796546a1c9
-      - type: patch
-        path: appstream.patch
-      - type: patch
-        path: appstream2.patch
+        tag: v0.6
+        commit: 387651262ddb6204103eadda025d6ec697d74dd9
   - name: q3rally-data
     buildsystem: simple
     build-commands:
@@ -45,5 +41,5 @@ modules:
       - cp -rv baseq3r ${FLATPAK_DEST}/lib/q3rally/
     sources:
       - type: archive
-        url: https://github.com/Q3Rally-Team/q3rally/releases/download/v0.4/q3rally_v0.4_linux64.zip
-        sha256: 787a04eb87d86e93599c41f65c526a76f6a2325232225de5afb3f6e79cee5853
+        url: https://github.com/Q3Rally-Team/q3rally/releases/download/v0.6/q3rally_v0.6_linux64.zip
+        sha256: cfd63f32f9ce26ecfd09ca10f67c9ed68182868e6b8fddfc0c66a97e47576723
