@@ -1,9 +1,9 @@
 app-id: com.q3rally.Q3Rally
 runtime: org.freedesktop.Platform
-runtime-version: '25.08'
+runtime-version: '26.08'
 sdk: org.freedesktop.Sdk
 command: q3rally
-rename-icon: q3rally
+rename-icon: quake3
 rename-desktop-file: q3rally.desktop
 finish-args:
   - --socket=pulseaudio
@@ -26,20 +26,20 @@ modules:
       - mv ${FLATPAK_DEST}/bin/q3rally.* ${FLATPAK_DEST}/bin/q3rally
       - mv ${FLATPAK_DEST}/bin/q3rally-server.* ${FLATPAK_DEST}/bin/q3rally-server
       - mv ${FLATPAK_DEST}/bin/*.so ${FLATPAK_DEST}/lib/q3rally/
-      - install -Dm0644 engine/misc/quake3.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/q3rally.svg
-      - install -Dm0644 engine/misc/setup/q3rally.desktop ${FLATPAK_DEST}/share/applications/q3rally.desktop
-      - install -Dm0644 engine/misc/setup/${FLATPAK_ID}.metainfo.xml ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml
+      - install -Dm0644 engine/misc/quake3.svg -t ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/
+      - install -Dm0644 engine/misc/setup/q3rally.desktop -t ${FLATPAK_DEST}/share/applications/
+      - install -Dm0644 engine/misc/setup/${FLATPAK_ID}.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo/
     sources:
-      - type: git
-        url: https://github.com/Q3Rally-Team/q3rally.git
-        tag: v0.6
-        commit: 387651262ddb6204103eadda025d6ec697d74dd9
+      - type: archive
+        url: https://github.com/Q3Rally-Team/q3rally/archive/refs/tags/v0.8.4.tar.gz
+        sha256: bdde2b11f00f2fc262cf86266a641d4f1b1addec1d1fb8bbf214352c20989b83
+      - type: patch
+        path: fix-appdata.patch
   - name: q3rally-data
     buildsystem: simple
     build-commands:
-      - rm baseq3r/*.so
       - cp -rv baseq3r ${FLATPAK_DEST}/lib/q3rally/
     sources:
       - type: archive
-        url: https://github.com/Q3Rally-Team/q3rally/releases/download/v0.6/q3rally_v0.6_linux64.zip
-        sha256: cfd63f32f9ce26ecfd09ca10f67c9ed68182868e6b8fddfc0c66a97e47576723
+        url: https://github.com/Q3Rally-Team/q3rally/releases/download/v0.8.4/Q3Rally-v0.8.4-linux-x86_64.zip
+        sha256: 16ada55675fd8b297ef32ab02f18811ab520b82d709e54b0e588234673dd1015

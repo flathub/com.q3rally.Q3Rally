@@ -1,0 +1,38 @@
+From 8ad8c0b667e62e788bd7c5b3c28c8fe9f3d4cb4b Mon Sep 17 00:00:00 2001
+From: Sabri Ünal <yakushabb@gmail.com>
+Date: Fri, 6 Nov 2026 12:08:33 +0300
+Subject: [PATCH] Fix missing release information
+
+---
+ engine/misc/setup/com.q3rally.Q3Rally.metainfo.xml | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/engine/misc/setup/com.q3rally.Q3Rally.metainfo.xml b/engine/misc/setup/com.q3rally.Q3Rally.metainfo.xml
+index e6d1f59..3b076a4 100644
+--- a/engine/misc/setup/com.q3rally.Q3Rally.metainfo.xml
++++ b/engine/misc/setup/com.q3rally.Q3Rally.metainfo.xml
+@@ -39,6 +39,21 @@
+     </screenshot>
+   </screenshots>
+   <releases>
++    <release version="0.8.4" date="2026-10-04" type="stable">
++      <url>https://github.com/Q3Rally-Team/q3rally/releases/tag/v0.8.4</url>
++    </release>
++    <release version="0.8" date="2026-10-03" type="stable">
++      <url>https://github.com/Q3Rally-Team/q3rally/releases/tag/v0.8</url>
++    </release>
++    <release version="0.7" date="2026-03-08" type="stable">
++      <url>https://github.com/Q3Rally-Team/q3rally/releases/tag/v0.7</url>
++    </release>
++    <release version="0.6" date="2025-10-04" type="stable">
++      <url>https://github.com/Q3Rally-Team/q3rally/releases/tag/v0.6</url>
++    </release>
++    <release version="0.5" date="2025-08-05" type="stable">
++      <url>https://github.com/Q3Rally-Team/q3rally/releases/tag/v0.5</url>
++    </release>
+     <release version="0.4" date="2022-03-04" type="stable">
+       <url>https://github.com/Q3Rally-Team/q3rally/releases/tag/v0.4</url>
+     </release>
+--
+libgit2 1.9.7
+
